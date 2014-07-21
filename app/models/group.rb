@@ -4,6 +4,8 @@ class Group < ActiveRecord::Base
   has_many :memberships
   has_many :user, through: :memberships
 
+  has_many posts, as: :postable
+
   has_many :collaborations
   has_many :collaborators, through: :collaborations
 
