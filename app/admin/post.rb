@@ -1,4 +1,5 @@
 ActiveAdmin.register Post do
+  permit_params :header, :content, :type
 
   
   # See permitted parameters documentation:
