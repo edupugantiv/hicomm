@@ -10,6 +10,6 @@ class Group < ActiveRecord::Base
   has_many :inverse_collaborations, :class_name =>  "Collaboration", :foreign_key => "collaborator_id"
   has_many :inverse_collaborators, :through => :inverse_collaborations, :source => :group
 
-
   acts_as_votable 
+  
 end

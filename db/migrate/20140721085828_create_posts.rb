@@ -4,8 +4,10 @@ class CreatePosts < ActiveRecord::Migration
       t.string :header
       t.string :content
       t.string :type
+      t.string :source
       t.references :user, index: true
-      
+      t.belongs_to :postable, :polymorphic => true
+
       t.timestamps
     end
   end
