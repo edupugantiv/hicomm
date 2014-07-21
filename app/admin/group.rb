@@ -1,4 +1,5 @@
 ActiveAdmin.register Group do
+  permit_params :name, :group_type, :about, :details, :scope
 
   
   # See permitted parameters documentation:
