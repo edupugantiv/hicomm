@@ -1,4 +1,5 @@
 ActiveAdmin.register Affiliation do
+  permit_params :role
 
   
   # See permitted parameters documentation:
