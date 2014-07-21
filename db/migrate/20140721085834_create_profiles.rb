@@ -9,7 +9,6 @@ class CreateProfiles < ActiveRecord::Migration
       t.text :occupation
       t.date :date_of_birth
       t.text :about
-      t.references :user, index: true
 
       t.timestamps
     end
