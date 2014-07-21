@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  residence: MyString
+  hometown: MyString
+  education: MyText
+  skills: MyText
+  occupation: MyText
+  date_of_birth: 2014-07-21
+  about: MyText
+  user_id: 
+
+two:
+  user_id: 
+  residence: MyString
+  hometown: MyString
+  education: MyText
+  skills: MyText
+  occupation: MyText
+  date_of_birth: 2014-07-21
+  about: MyText
+  user_id: 
