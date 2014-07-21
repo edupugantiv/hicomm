@@ -11,4 +11,11 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :groups, through: :memberships
 
+  has_many :affiliations
+  has_many :affiliates, through: :affiliations
+
+  has_many :inverse_affiliations, :class_name =>  "Affiliation", :foreign_key => "affiliate_id"
+  has_many :inverse_affiliates, :through => :inverse_affiliations, :source => :user
+
+
 end
