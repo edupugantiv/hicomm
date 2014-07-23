@@ -42,6 +42,7 @@ gem 'bundler'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
+gem 'country_select', github: 'stefanpenner/country_select'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'simple_form'

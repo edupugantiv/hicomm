@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20140721095336) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
+    t.string   "name"
     t.string   "residence"
     t.string   "hometown"
     t.text     "education"
@@ -139,6 +140,8 @@ ActiveRecord::Schema.define(version: 20140721095336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
+    t.string   "phone_number"
+    t.string   "preference"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
