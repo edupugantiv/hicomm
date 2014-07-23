@@ -77,5 +77,3 @@ class ProfilesController < ApplicationController
       params.require(:profile).permit(:user_id, :occupations, :skills, :education, :date_of_birth, :residence, :hometown, :about)
     end
 end
-class ProfilesController < ApplicationController
-end
