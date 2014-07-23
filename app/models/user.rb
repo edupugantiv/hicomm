@@ -17,5 +17,16 @@ class User < ActiveRecord::Base
   has_many :inverse_affiliations, :class_name =>  "Affiliation", :foreign_key => "affiliate_id"
   has_many :inverse_affiliates, :through => :inverse_affiliations, :source => :user
 
+  #validations
+  after_create :create_profile
+
+  private
+
+    def create_profile
+      @profile = Profile.create
+      @profile.user = self
+      self.profile = @profile
+    end
+
 
 end
