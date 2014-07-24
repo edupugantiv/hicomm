@@ -59,4 +59,5 @@ gem 'validates_formatting_of'
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'rails_layout'
 end

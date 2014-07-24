@@ -57,8 +57,15 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-resources :profiles
+  resources :profiles
+
+  resources :groups do
+    put:join, :on => :collection
+    resources :posts
+  end
+
   
+  root 'landings#index'
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do
     get    "login"   => "users/sessions#new",         as: :new_user_session

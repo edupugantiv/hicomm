@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140721095336) do
     t.string   "hometown"
     t.text     "education"
     t.text     "skills"
-    t.text     "occupation"
+    t.text     "occupations"
     t.date     "date_of_birth"
     t.text     "about"
     t.datetime "created_at"

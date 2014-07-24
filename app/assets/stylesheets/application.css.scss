@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-fixed-top {
+	background: image-url("header.png");
+	background-repeat : repeat-x;
+	height: 80px;
+}
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+    margin: 0 auto -63px;
+}
+
+#footer {
+  height: 60px;
+  background-color: #D9501F;
+}

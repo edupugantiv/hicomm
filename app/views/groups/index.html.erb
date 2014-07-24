@@ -1,0 +1,35 @@
+<%- model_class = Group -%>
+<div class="page-header">
+  <h1>Community</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:about) %></th>
+      <th><%= model_class.human_attribute_name(:scope) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.group_type %></td>
+        <td><%= group.about.split[0..15].join(" ") %></td>
+        <td><%= group.scope %></td> 
+        <td>
+          <% if user_signed_in? and not group.users.include?(current_user) %>
+          <%= link_to "Join", {:controller => :groups, :action => :join, id: group.id}, :method => "put", :class => "btn btn-md btn-success" %>
+          <% end %>
+          <%= link_to "view", group_path(group), :class => "btn btn-md btn-default" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_group_path,
+            :class => 'btn btn-primary' %>

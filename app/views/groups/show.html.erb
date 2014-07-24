@@ -1,0 +1,47 @@
+<%- model_class = Group -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => @group.name %></h1>
+</div>
+<div class = "cointainer-fluid">
+<div class = "row">
+<div class = "col-md-4">
+
+     <pre class="prettyprint"><%= @group.name %></pre>
+     <pre class="prettyprint"><%= @group.about %></pre>
+     <pre class="prettyprint"><%= @group.details %></pre>
+     <pre class="prettyprint"><%= @group.scope %></pre>
+
+<div class="form-group">
+  <% if not @group.users.include?(current_user) %>
+    <% if user_signed_in? %>
+      <%= link_to "Join", {:controller => :groups, :action => :join, id: @group.id}, :method => "put", :class => "btn btn-lg btn-success" %>
+    <% end %>
+  <% else %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_group_path(@group), :class => 'btn btn-default' %>
+  <% end %>
+</br>
+<table class = "table">
+<th>Users</th>
+  <% @group.users.each  do |u| %>
+  <tr>
+    <td><%= u.email %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>
+<div class = "col-md-8">
+
+<% if @group.users.include?(current_user) %>
+<%= render "posts/posts" %>
+<%= render "posts/form" %>
+<% end %>
+</div>
+</div>
+<div class = "row">
+  <div class = "col-md-4">
+  
+  </div>
+</div>
+</div>

@@ -1,3 +1,62 @@
 // Place all the styles related to the landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+	padding-top: 40px;
+}
+
+body {
+    padding-top: 23px;
+}
+
+#carousel1 .nav a small {
+    display: block;
+}
+
+.slider-size {
+height: 400px; /* This is your slider height */
+}
+.carousel1 {
+width:100%; 
+margin:0 auto; /* center your carousel if other than 100% */ 
+}
+
+#carousel1 .nav {
+    background: #eee;
+}
+.nav-justified > li > a {
+    border-radius: 0px;
+}
+.nav-pills > li[data-slide-to="0"].active a {
+    background-color: #b4d9a7;
+}
+.nav-pills > li[data-slide-to="1"].active a {
+    background-color: #4f77cb;
+}
+
+.table > tbody > tr > th {
+	border-top: none;
+}
+
+#table-messages {
+	background-color: #fff;
+}
+
+#table-updates {
+	background-color: #fff;
+}
+
+#table-profile {
+	background-color: #fff;
+}
+
+
+.well {
+	background-color: #fff;
+}
+
+.col {
+  padding-right:7px;
+  padding-left:7px;
+}
