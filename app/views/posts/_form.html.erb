@@ -1,0 +1,25 @@
+<%= form_for [@postable, @post] do |f| %>
+  <% if @post.errors.any? %>
+    <div class="error_messages">
+      <h2>Please correct the following errors.</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.text_field :header, rows: 8, :placeholder => "type your topic here" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :content, rows: 8, :placeholder => "type your message here" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

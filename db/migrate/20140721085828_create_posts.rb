@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :content
       t.string :type
       t.string :source
+      t.belongs_to :post
       t.references :user, index: true
       t.belongs_to :postable, :polymorphic => true
 

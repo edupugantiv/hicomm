@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <table class = "table" id = "table-profile">
+    <td class = "text-center">
+      <%= render 'landings/user/profile' %>
+    </td>
+      <tr>
+        <td class = "text-center">
+          Projects(<%= current_user.projects.count %>)
+        </td>
+      </tr>
+      <tr>
+        <td class = "text-center">
+          Communities(<%= current_user.communities.count %>)
+        </td>
+      </tr>
+      <tr>
+        <td class = "text-center">
+         Organizations(<%= current_user.organizations.count %>)
+        </td>
+      </tr>
+      <tr>
+        <td class = "text-center">
+        Contacts(<%= current_user.affiliates. count %>)
+      </td>
+    </tr>
+  </table>
+</div>

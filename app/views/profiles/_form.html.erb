@@ -1,5 +1,11 @@
 <%= form_for @profile, :html => { :class => 'form-horizontal form-model' } do |f| %>
   <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :occupations, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_area :occupations, :class => 'text-field form-control' %>

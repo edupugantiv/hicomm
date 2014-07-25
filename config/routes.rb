@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   resources :profiles
 
+  resources :posts
+
   resources :groups do
     put:join, :on => :collection
     resources :posts

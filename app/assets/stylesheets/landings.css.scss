@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// main page
+
+#table-messages {
+  background-color: #fff;
+}
+
+#table-updates {
+  background-color: #fff;
+}
+
+.well {
+  background-color: #fff;
+}
+
+.col {
+  padding-right:7px;
+  padding-left:7px;
+}
+
 .row {
 	padding-top: 40px;
 }
@@ -10,6 +30,9 @@ body {
     padding-top: 23px;
 }
 
+//partials
+
+//center tab (carousel)
 #carousel1 .nav a small {
     display: block;
 }
@@ -39,24 +62,8 @@ margin:0 auto; /* center your carousel if other than 100% */
 	border-top: none;
 }
 
-#table-messages {
-	background-color: #fff;
-}
-
-#table-updates {
-	background-color: #fff;
-}
+//left tab (profile)
 
 #table-profile {
-	background-color: #fff;
-}
-
-
-.well {
-	background-color: #fff;
-}
-
-.col {
-  padding-right:7px;
-  padding-left:7px;
+  background-color: #fff;
 }

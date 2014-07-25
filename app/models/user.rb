@@ -20,6 +20,18 @@ class User < ActiveRecord::Base
   #validations
   after_create :create_profile
 
+  def projects
+    return self.groups.where(:group_type=>'Project')
+  end
+
+  def organizations
+    return self.groups.where(:group_type=>'Organization')
+  end
+
+  def communities
+    return self.groups.where(:group_type=>'Community')
+  end
+
   private
 
     def create_profile
