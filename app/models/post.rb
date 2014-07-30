@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  attr_accessor :phone_number	
+  attr_accessor :phone_number, :post
 
   #relations
   belongs_to :user

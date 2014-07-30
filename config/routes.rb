@@ -61,6 +61,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     put:reply, :on => :collection
+    resources :posts
   end
 
   resources :groups do

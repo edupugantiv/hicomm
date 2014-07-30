@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[id])
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -21,12 +21,23 @@ class PostsController < ApplicationController
 #    @twilio_client = Twilio::REST::Client.new @account_sid, @auth_token
 
     @post = @postable.posts.new(post_params)
-    @users = @postable.users-[current_user]
+
+    if @postable.instance_of?(Post)
+        target = @postable.postable
+        @post.header = target.header
+        @post.type = "message"
+    else
+        target = @postable
+        @post.type = "conversation"
+    end
+
+      @users = target.users-[current_user]
+
     if not current_user.nil? then
       @post.user = current_user
       @post.source = "web"
     else
-      @post.user = User.find_by_phone_number(post_params[:phone_number])
+      @post.user = User.find_by_pho1ne_number(post_params[:phone_number])
       @post.source = "sms"
     end
 
@@ -44,7 +55,7 @@ class PostsController < ApplicationController
 #    end
 
     if @post.save
-      redirect_to @postable, notice: "post created."
+      redirect_to target, notice: "post created."
     else
       render :new
     end

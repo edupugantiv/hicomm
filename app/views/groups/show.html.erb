@@ -35,6 +35,7 @@
 
 <% if @group.users.include?(current_user) %>
 <%= render "posts/posts" %>
+<% @postable = @group %>
 <%= render "posts/form" %>
 <% end %>
 </div>

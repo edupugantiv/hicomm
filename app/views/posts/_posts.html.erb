@@ -1,11 +1,12 @@
 <div id="posts">
 <table class = "table">
-<% @posts.each do |post| %>
+<% @posts.each do |p| %>
+  <% @postable = p %>
   <tr>
-  	<td><%= simple_format post.source %> </td>
-	<td><%= simple_format post.header %> </td>
-  	<td><%= simple_format post.content %> </td>
-	 <td><%= render "posts/form" %> </td>
+  	<td><%= simple_format p.source %> </td>
+	<td><%= simple_format p.header %> </td>
+  	<td><%= simple_format p.content %> </td>
+	 <td><%= render "posts/reply_form" %> </td> 	
   </tr>
 <% end %>
 

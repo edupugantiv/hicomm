@@ -1,5 +1,3 @@
-    
-
 <div class="container-fluid">
     <div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="false">
         <ul class="nav nav-pills nav-justified">
@@ -35,7 +33,7 @@
                                     <%= @p.created_at %>
                                 </td>
                                 <td>
-                                    <%= link_to @p, '\posts\reply', id: "modal_path" %>
+                                    <%= link_to @p, '\posts\reply_form', @postable => @p %>
                                 </td>
                             </tr>
                     <% end %>
