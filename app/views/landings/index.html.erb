@@ -1,15 +1,5 @@
-<div class = "container-fluid">
-  <div class = "row">
-    <div class = "col-md-3">
-      <%= render 'landings/user/user_panel' %>
-    </div>
-    <div class = "col-md-6">
-      <%= render "landings/messages/carousel" %>
-    </div>
-    <div class = "col-md-3">
-    <div class = "well">
-      one
-      </div>
-    </div>
-  </div>
-</div>
+<% if signed_in? then %>
+  <%= render '/landings/signed_in/home' %>
+<% else %>
+  <%= render 'pitch' %>
+<% end %>

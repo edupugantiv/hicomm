@@ -59,14 +59,15 @@ Rails.application.routes.draw do
 
   resources :profiles
 
-  resources :posts
+  resources :posts do
+    put:reply, :on => :collection
+  end
 
   resources :groups do
     put:join, :on => :collection
     resources :posts
   end
 
-  
   root 'landings#index'
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do

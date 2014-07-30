@@ -6,6 +6,7 @@ class CreateGroups < ActiveRecord::Migration
       t.text :about
       t.text :details
       t.string :scope
+      t.text :location
 
       t.timestamps
     end

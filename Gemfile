@@ -56,6 +56,10 @@ gem 'bootstrap-sass-extras'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 
+group :assets do
+ gem 'bootstrap-modal-rails'
+end
+
 group :development do
   gem 'better_errors'
   gem 'pry-rails'

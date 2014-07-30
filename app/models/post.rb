@@ -6,13 +6,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :postable, polymorphic: true
   
-  has_many :posts
-  belongs_to :post
+  has_many :posts, as: :postable
 
   acts_as_votable 
-
-  def is_conversation
-  	!self.post.nil? 
-  end
 
 end

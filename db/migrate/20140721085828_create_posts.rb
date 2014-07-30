@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :header
       t.string :content
       t.string :type
+      t.boolean :read
       t.string :source
       t.belongs_to :post
       t.references :user, index: true

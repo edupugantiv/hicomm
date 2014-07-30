@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   #relations
   has_one  :profile
   has_many :posts
+  has_many :messages, through: :postable, :class_name => "Post"
 
   has_many :memberships
   has_many :groups, through: :memberships
@@ -30,6 +31,17 @@ class User < ActiveRecord::Base
 
   def communities
     return self.groups.where(:group_type=>'Community')
+  end
+
+  def conversations
+    @c = []
+    self.groups.each do |g|
+      g.conversations.each do |c|
+        @c << c
+      end
+    end
+
+    return @c
   end
 
   private

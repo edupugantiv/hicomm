@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140721095336) do
     t.text     "about"
     t.text     "details"
     t.string   "scope"
+    t.text     "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -100,7 +101,9 @@ ActiveRecord::Schema.define(version: 20140721095336) do
     t.string   "header"
     t.string   "content"
     t.string   "type"
+    t.boolean  "read"
     t.string   "source"
+    t.integer  "post_id"
     t.integer  "user_id"
     t.integer  "postable_id"
     t.string   "postable_type"

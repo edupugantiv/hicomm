@@ -12,6 +12,12 @@
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :location, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :location, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :about, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_area :about, :class => 'text-field form-control' %>

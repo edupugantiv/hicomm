@@ -1,0 +1,65 @@
+    
+
+<div class="container-fluid">
+    <div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ul class="nav nav-pills nav-justified">
+            <li data-target="#carousel1" data-slide-to="0" class="active">
+                <a href="#">Updates</a>
+            </li>
+            <li data-target="#carousel1" data-slide-to="1">
+                <a href="#">Messages</a>
+            </li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="item active">
+                <% @updates = current_user.conversations %>
+                <table class = "table" id = "table-updates">
+                    <% @updates.each do |u| %>
+                        <% @p = u %>
+                        <% @p = u.posts.last unless u.posts.empty? %>
+                            <tr>
+                                <td>
+                                <%= @p.postable.name %>
+                                <%= @p.header %>
+                                </td>
+                                <td>
+                                    <%= @p.source %>
+                                </td>
+                                <td>
+                                    <%= @p.user.profile.name %>
+                                </td>
+                                <td>
+                                    <%= @p.content %>
+                                </td>
+                                <td>
+                                    <%= @p.created_at %>
+                                </td>
+                                <td>
+                                    <%= link_to @p, '\posts\reply', id: "modal_path" %>
+                                </td>
+                            </tr>
+                    <% end %>
+                </table>
+            </div>
+            <div class="item">
+                <table class = "table" id = "table-messages">
+                    <tr>
+                    <td>something</td>
+                    <td>something</td>
+                    </tr>
+                    <tr>
+                    <td>something</td>
+                    <td>something</td>
+                    </tr>
+                    <tr>
+                    <td>something</td>
+                    <td>something</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

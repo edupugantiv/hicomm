@@ -1,0 +1,46 @@
+<div class = "well">
+<h2> Explore </h2>
+<table class = "table">
+  <% Group.all.each do |g| %>
+  <tr>
+  <td>
+    <table class = "table-no-border">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <%= g.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          type
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Location
+        </td>
+        <td>
+          <%= g.location %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Scale
+        </td>
+        <td>
+          <%= g.scope %>
+        </td>
+    </tr>
+  </table>
+    <p><%= g.users.count %> members</p>
+    </td>
+  </tr>
+  <% end %>
+
+  </table>
+</div>

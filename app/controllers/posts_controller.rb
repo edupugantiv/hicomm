@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     @post = @postable.posts.new
   end
 
+  def show
+    @post = Post.find(params[id])
+  end
+
   def create
 
 #    @account_sid = 'AC8bbb26ca09317b88c68ffc3f0028deb3'
@@ -24,10 +28,6 @@ class PostsController < ApplicationController
     else
       @post.user = User.find_by_phone_number(post_params[:phone_number])
       @post.source = "sms"
-    end
-
-    if not @post.is_conversation then
-    	@post.head = @post.post.header
     end
 
     if @post.content == "" then
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  end
+end
 
 private
 
@@ -59,7 +59,7 @@ private
   end
 
   def post_params
-      params.require(:post).permit(:title, :content, :user, :phone_number, :post)
+      params.require(:post).permit(:header, :content, :user, :phone_number, :post)
    end
 
   # def load_postable
