@@ -17,6 +17,17 @@
 
  */
 
+.modal { 
+  width: 100%;
+  left: 0;
+  background-color: transparent; }
+
+.modal-body { 
+  display: inline-block; 
+  background-color: #FFF; }
+
+.modal img { min-width: none!important; }
+
 .navbar-fixed-top {
 	background: image-url("header.png");
 	background-repeat : none;

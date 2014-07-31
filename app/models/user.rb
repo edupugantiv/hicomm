@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :inverse_affiliations, :class_name =>  "Affiliation", :foreign_key => "affiliate_id"
   has_many :inverse_affiliates, :through => :inverse_affiliations, :source => :user
 
+  before_validation :normalize_number
+  validates :phone_number, :phony_plausible => true, :if => :has_number
+
   #validations
   after_create :create_profile
 
@@ -45,6 +48,11 @@ class User < ActiveRecord::Base
     self.posts.where(type: "private_message")
   end
 
+  def has_number
+    !self.phone_number.nil?
+  end
+
+
   private
 
     def create_profile
@@ -53,5 +61,11 @@ class User < ActiveRecord::Base
       self.profile = @profile
     end
 
+
+    def normalize_number
+      if not self.phone_number.nil? then
+        self.phone_number.phony_formatted!(:format => :international, :normalize => self.country, :spaces => '')
+      end
+    end
 
 end

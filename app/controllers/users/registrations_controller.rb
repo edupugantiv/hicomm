@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def edit
     super
+     resource.phone_number.phony_formatted!(:format => :international, :normalize => account_update_params["country"], :spaces => '') unless !resource.has_number
   end
 
   protected

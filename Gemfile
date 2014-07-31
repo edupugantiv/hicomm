@@ -55,7 +55,8 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
-
+gem 'twilio-ruby'
+gem 'phony_rails'
 
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails', :branch => 'master'

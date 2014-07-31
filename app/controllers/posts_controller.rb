@@ -16,9 +16,9 @@ class PostsController < ApplicationController
 
   def create
 
-#    @account_sid = 'AC8bbb26ca09317b88c68ffc3f0028deb3'
-#    @auth_token = '8227e8dfb59538d2cb2002cac66f7097'
-#    @twilio_client = Twilio::REST::Client.new @account_sid, @auth_token
+    @account_sid = 'AC8bbb26ca09317b88c68ffc3f0028deb3'
+    @auth_token = '8227e8dfb59538d2cb2002cac66f7097'
+    @twilio_client = Twilio::REST::Client.new @account_sid, @auth_token
 
     @post = @postable.posts.new(post_params)
 
@@ -45,14 +45,14 @@ class PostsController < ApplicationController
       redirect_to @postable, alert: "cannot post empty message"
     else
 
-#    @users.each do |u|
-#      if not u.phone_number.nil? and u.phone_number != post_params[:title] then
-#        @twilio_client.account.messages.create(:body => post_params[:content],
-#          :to => u.phone_number,
-#          :from => "+17572169373"
-#          ) 
-#      end
-#    end
+    @users.each do |u|
+      if not u.phone_number.nil? and u.phone_number != post_params[:title] then
+        @twilio_client.account.messages.create(:body => post_params[:content],
+          :to => u.phone_number,
+          :from => "+17572169373"
+          ) 
+      end
+    end
 
     if @post.save
       redirect_to :root, notice: "post created."

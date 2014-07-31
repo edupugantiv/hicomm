@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :preference
     devise_parameter_sanitizer.for(:account_update) << :phone_number
     devise_parameter_sanitizer.for(:account_update) << :country
-    devise_parameter_sanitizer.for(:sign_up) << :prefence
+    devise_parameter_sanitizer.for(:account_update) << :prefence
   end
 
 

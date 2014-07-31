@@ -14,7 +14,6 @@
                 <table class = "table-no-border" id = "table-updates">
                     <% @updates.each do |u| %>
                         <% @p = u %>
-                        <% @postable = @p %>
                             <tr>
                                 <td>
                                     <%= @p.postable.name %>
@@ -31,13 +30,16 @@
                                     <%= @p.content %>
                                 </td>
                                 <td>
-                                    <% @post = Post.new %>
-                                    <div id="demo-form" class="demo-form" style="display: none ">
-                                    Show something
-                                    </div>
-                                   <%=  link_to_modal "reply", "#demo_form", :class=>"btn btn-success" %> 
+                                <% @post = Post.new %>
+                                <% @postable = u %>
+                                <!-- Button trigger modal -->
+                                <button class="btn btn-primary btn-s" data-toggle="modal" data-target="#myModal">
+                                Reply
+                                </button>
+                                <%= render "posts/reply", :postable => u, :post => @p %>
                                 </td>
                             </tr>
+
                     <% end %>
                 </table>
             </div>

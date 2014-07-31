@@ -15,9 +15,12 @@
   </div>
   
   <div class="field">
-    <%= f.text_field :content, rows: 8, :placeholder => "type your message here" %>
+    <%= f.text_field :content, rows: 30, :placeholder => "type your message here" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit "reply", :class=> "btn btn-success"  %>
+    </div>
   </div>
 <% end %>
