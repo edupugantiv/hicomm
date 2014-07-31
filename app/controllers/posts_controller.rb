@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 #    end
 
     if @post.save
-      redirect_to target, notice: "post created."
+      redirect_to :root, notice: "post created."
     else
       render :new
     end

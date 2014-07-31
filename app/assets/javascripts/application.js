@@ -11,9 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery.modal
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+
 //= require_tree .
 
 $("#modal_path").on("click", function() {

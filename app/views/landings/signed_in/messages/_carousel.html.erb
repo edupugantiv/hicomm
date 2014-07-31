@@ -32,7 +32,10 @@
                                 </td>
                                 <td>
                                     <% @post = Post.new %>
+                                    <div id="demo-form" class="demo-description" style="display: none; ">
                                     <%= render "posts/reply_form", :controller => "Posts", :action => "create" %>
+                                    </div>
+                                   <%=  link_to_modal "Demo Form", "#demo-form", :class=>"button" %> 
                                 </td>
                             </tr>
                     <% end %>
