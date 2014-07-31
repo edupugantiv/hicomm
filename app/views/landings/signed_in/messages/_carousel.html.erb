@@ -25,17 +25,17 @@
                                 </td>
                                 <td>
                                     <% @p = u.posts.last unless u.posts.empty? %>
-                                    <%= link_to @p, @p.header %>    
+                                    <%= link_to @p.header, @p  %>    
                                 </td>
                                 <td>
                                     <%= @p.content %>
                                 </td>
                                 <td>
                                     <% @post = Post.new %>
-                                    <div id="demo-form" class="demo-description" style="display: none; ">
-                                    <%= render "posts/reply_form", :controller => "Posts", :action => "create" %>
+                                    <div id="demo-form" class="demo-form" style="display: none ">
+                                    Show something
                                     </div>
-                                   <%=  link_to_modal "Demo Form", "#demo-form", :class=>"button" %> 
+                                   <%=  link_to_modal "reply", "#demo_form", :class=>"btn btn-success" %> 
                                 </td>
                             </tr>
                     <% end %>
