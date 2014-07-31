@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140721095336) do
   create_table "posts", force: true do |t|
     t.string   "header"
     t.string   "content"
-    t.string   "type"
+    t.string   "message_type"
     t.boolean  "read"
     t.string   "source"
     t.integer  "post_id"

@@ -10,30 +10,29 @@
         </ul>
         <div class="carousel-inner">
             <div class="item active">
-                <% @updates = current_user.conversations %>
-                <table class = "table" id = "table-updates">
+                <% @updates = current_user.group_conversations %>
+                <table class = "table-no-border" id = "table-updates">
                     <% @updates.each do |u| %>
                         <% @p = u %>
-                        <% @p = u.posts.last unless u.posts.empty? %>
+                        <% @postable = @p %>
                             <tr>
                                 <td>
-                                <%= @p.postable.name %>
-                                <%= @p.header %>
-                                </td>
-                                <td>
-                                    <%= @p.source %>
+                                    <%= @p.postable.name %>
                                 </td>
                                 <td>
                                     <%= @p.user.profile.name %>
+                                    <%= @p.source  unless @p.source == "web" %>
+                                </td>
+                                <td>
+                                    <% @p = u.posts.last unless u.posts.empty? %>
+                                    <%= @p.header %>    
                                 </td>
                                 <td>
                                     <%= @p.content %>
                                 </td>
                                 <td>
-                                    <%= @p.created_at %>
-                                </td>
-                                <td>
-                                    <%= link_to @p, '\posts\reply_form', @postable => @p %>
+                                    <% @post = Post.new %>
+                                    <%= render "posts/reply_form", :controller => "Posts", :action => "create" %>
                                 </td>
                             </tr>
                     <% end %>

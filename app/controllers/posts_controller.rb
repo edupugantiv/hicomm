@@ -24,11 +24,11 @@ class PostsController < ApplicationController
 
     if @postable.instance_of?(Post)
         target = @postable.postable
-        @post.header = target.header
-        @post.type = "message"
+        @post.header = @postable.header
+        @post.message_type = "message"
     else
         target = @postable
-        @post.type = "conversation"
+        @post.message_type = "conversation"
     end
 
       @users = target.users-[current_user]

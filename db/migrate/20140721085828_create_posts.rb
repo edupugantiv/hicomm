@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :header
       t.string :content
-      t.string :type
+      t.string :message_type
       t.boolean :read
       t.string :source
       t.belongs_to :post

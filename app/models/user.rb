@@ -33,15 +33,16 @@ class User < ActiveRecord::Base
     return self.groups.where(:group_type=>'Community')
   end
 
-  def conversations
-    @c = []
-    self.groups.each do |g|
-      g.conversations.each do |c|
-        @c << c
-      end
-    end
+  def group_conversations
+    self.posts.where(postable_type: "Group", message_type: "conversation")
+  end
 
-    return @c
+  def personal_conversations
+    self.posts.where(:postable.instance_of?(User), message_type: "conversation")
+  end
+
+  def private_message
+    self.posts.where(type: "private_message")
   end
 
   private
