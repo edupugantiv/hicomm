@@ -58,7 +58,7 @@ gem 'validates_formatting_of'
 
 
 gem 'jquery-ui-rails'
-gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails'
+gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails', :branch => 'master'
 
 
 group :development do

@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/dei79/jquery-modal-rails.git
   revision: 9aa5e120131108577cfeb9600dde7343d95a034f
+  branch: master
   specs:
     jquery-modal-rails (0.0.4)
       jquery-ui-rails
@@ -269,6 +270,7 @@ GEM
       activemodel (~> 4.0)
     warden (1.2.3)
       rack (>= 1.0)
+    win32console (1.3.2)
     win32console (1.3.2-x86-mingw32)
 
 PLATFORMS
