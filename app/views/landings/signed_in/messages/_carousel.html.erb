@@ -24,7 +24,7 @@
                                 </td>
                                 <td>
                                     <% @p = u.posts.last unless u.posts.empty? %>
-                                    <%= link_to @p.header, @p  %>    
+                                    <%= link_to u.header, u  %>    
                                 </td>
                                 <td>
                                     <%= @p.content %>
@@ -36,7 +36,7 @@
                                 <button class="btn btn-primary btn-s" data-toggle="modal" data-target="#myModal">
                                 Reply
                                 </button>
-                                <%= render "posts/reply", :postable => u, :post => @p %>
+                                <%= render "posts/reply_modal", :postable => u, :post => @p %>
                                 </td>
                             </tr>
 
