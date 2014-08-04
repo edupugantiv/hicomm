@@ -1,0 +1,10 @@
+<table class = "table">
+<% @groups_sel.each do |g| %>
+<tr><td><%= g.name %></td>
+        <td><%= g.group_type %></td>
+        <td><%= g.location %></td>
+        <td><%= g.about.split[0..15].join(" ") %></td>
+        <td><%= g.scope %></td> 
+        </tr>
+        <% end %>
+        </table>
