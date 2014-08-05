@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
     @post = @postable.posts.new(post_params)
 
-    if @postable.instance_of?(Post)
+    if @postable.instance_of?(Post) 
         target = @postable.postable
         @post.header = @postable.header
         @post.message_type = "message"
@@ -31,8 +31,6 @@ class PostsController < ApplicationController
         @post.message_type = "conversation"
     end
 
-      @users = target.users-[current_user]
-
     if not current_user.nil? then
       @post.user = current_user
       @post.source = "web"
@@ -40,6 +38,8 @@ class PostsController < ApplicationController
       @post.user = User.find_by_phone_number(post_params[:phone_number])
       @post.source = "sms"
     end
+
+    @users = target.users-[@post.user]
 
     if @post.content == "" then
       redirect_to @postable, alert: "cannot post empty message"
