@@ -31,9 +31,7 @@ class PostsController < ApplicationController
         @post.message_type = "conversation"
     end
 
-    if !current_user.nil?
       @users = target.users-[current_user]
-    end
 
     if not current_user.nil? then
       @post.user = current_user
