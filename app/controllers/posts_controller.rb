@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       @post.user = current_user
       @post.source = "web"
     else
-      @post.user = User.find_by_pho1ne_number(post_params[:phone_number])
+      @post.user = User.find_by_phone_number(post_params[:phone_number])
       @post.source = "sms"
     end
 
