@@ -45,9 +45,12 @@ class PostsController < ApplicationController
       redirect_to @postable, alert: "cannot post empty message"
     else
 
+    @body = post_params[:content]+"\n Reply with @"+@postable.id.to_s
+
+
     @users.each do |u|
       if not u.phone_number.nil? and u.phone_number != post_params[:title] then
-        @twilio_client.account.messages.create(:body => post_params[:content],
+        @twilio_client.account.messages.create(:body => @body,
           :to => u.phone_number,
           :from => "+17572169373"
           ) 
