@@ -15,7 +15,7 @@ class Group < ActiveRecord::Base
   acts_as_votable
 
   def conversations
-  	return self.posts.where(:type => "conversation")
+  	return self.posts.where(:message_type => "conversation")
   end
 
 

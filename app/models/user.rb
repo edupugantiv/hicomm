@@ -37,7 +37,15 @@ class User < ActiveRecord::Base
   end
 
   def group_conversations
-    self.posts.where(postable_type: "Group", message_type: "conversation")
+    @groups = self.groups
+    @conversations = []
+    @groups.each do |g|
+      g.conversations.each do |c|
+        @conversations << c
+      end
+    end
+
+    @conversations
   end
 
   def personal_conversations
