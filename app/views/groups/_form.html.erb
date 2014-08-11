@@ -1,37 +1,37 @@
 <%= form_for @group, :html => { :class => 'form-horizontal form-model' } do |f| %>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-3">
       <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :type, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-3">
       <%= f.select :group_type, %w[Project Community Organization] %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :location, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-5">
       <%= f.text_field :location, :class => 'text-field form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :about, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-5">
       <%= f.text_area :about, :class => 'text-field form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :details, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-5">
       <%= f.text_area :details, :class => 'text-field form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :scope, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
+    <div class="col-md-5">
       <%= f.select :scope, %w[village town city state province country international idea] %>
     </div>
   </div>

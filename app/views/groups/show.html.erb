@@ -1,43 +1,72 @@
-<%- model_class = Group -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => @group.name %></h1>
-</div>
+
 <div class = "cointainer-fluid">
 <div class = "row">
 <div class = "col-md-4">
-
-     <pre class="prettyprint"><%= @group.name %></pre>
-     <pre class="prettyprint"><%= @group.about %></pre>
-     <pre class="prettyprint"><%= @group.details %></pre>
-     <pre class="prettyprint"><%= @group.scope %></pre>
-
+<%- model_class = Group -%>
+<div class = "well" >
+  
+    <table class = "no-border">
+      <tr>
+        <td>      </td>
+        <td> <h1><%=t '.title', :default => @group.name %></h1>
+          <p><%= @group.users.count %> members </p>
+        </td>
+      </tr>
+      <tr>
+        <td class = "col-md-3 text-right margin-top:5px">Name: </td>
+        <td class = "col-md-9 text-left"><%= @group.name %></td>
+      </tr>
+      <tr>
+        <td class = "col-md-3 text-right margin-top:5px">Org. Type: </td>
+        <td class = "col-md-9"><%= @group.group_type %></td>
+      </tr>
+      <tr>
+        <td class = "col-md-3 text-right margin-top:5px">About: </td>
+        <td class = "col-md-9"><%= @group.about %></td>
+      </tr>
+      <tr>
+        <td class = "col-md-3 text-right">Details: </td>
+        <td class = "col-md-9"><%= @group.details %></td>
+      </tr>
+      <tr>
+        <td class = "col-md-3 text-right">Scope: </td>
+        <td class = "col-md-9"><%= @group.scope %></td>
+      </tr>
+     </table>
 <div class="form-group">
   <% if not @group.users.include?(current_user) %>
     <% if user_signed_in? %>
       <%= link_to "Join", {:controller => :groups, :action => :join, id: @group.id}, :method => "put", :class => "btn btn-lg btn-success" %>
-    <% end %>
-  <% else %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      <% if current_user == group.users.first %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_group_path(@group), :class => 'btn btn-default' %>
+      <% end %>
+    <% end %>
   <% end %>
 </br>
+</div>
+</div>
+<div class = "well">
 <table class = "table">
 <th>Users</th>
   <% @group.users.each  do |u| %>
   <tr>
-    <td><%= u.email %></td>
+    <td><%= link_to u.email, profile_path(u) %></td>
   </tr>
   <% end %>
 </table>
 </div>
 </div>
 <div class = "col-md-8">
-
+<div class = "well">
+<h2> Conversations </h2>
 <% if @group.users.include?(current_user) %>
 <%= render "posts/posts" %>
+<h3> New Conversation </h3>
 <% @postable = @group %>
 <%= render "posts/form" %>
 <% end %>
+</div>
 </div>
 </div>
 <div class = "row">

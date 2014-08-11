@@ -1,13 +1,19 @@
 <div id="posts">
 <table class = "table">
+<% if @posts.empty? %>
+	<em>No conversations... yet! </em>
+<% else %>
 <% @posts.each do |p| %>
   <% @postable = p %>
   <tr>
   	<td><%= simple_format p.source %> </td>
 	<td><%= simple_format p.header %> </td>
   	<td><%= simple_format p.content %> </td>
-	 <td><%= render "posts/reply_form" %> </td> 	
+	<td><button class="btn btn-primary btn-s" data-toggle="modal" data-target="#myModal">
+                                Reply
+                                </button>
+        <%= render "posts/reply_modal", :post => p, :postable => @postable%></td> 	
   </tr>
 <% end %>
-
+<% end %>
 </table>
