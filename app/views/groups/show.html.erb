@@ -29,22 +29,21 @@
         <td class = "col-md-9"><%= @group.details %></td>
       </tr>
       <tr>
-        <td class = "col-md-3 text-right">Scope: </td>
+   <td class = "col-md-3 text-right">Scope: </td>
         <td class = "col-md-9"><%= @group.scope %></td>
       </tr>
      </table>
 <div class="form-group">
-  <% if not @group.users.include?(current_user) %>
-    <% if user_signed_in? %>
-      <%= link_to "Join", {:controller => :groups, :action => :join, id: @group.id}, :method => "put", :class => "btn btn-lg btn-success" %>
-      <% if current_user == group.users.first %>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    <% if signed_in? %>
+      <% if not @group.users.incldue?(current_user) %>
+        <%= link_to "Join", {:controller => :groups, :action => :join, id: @group.id}, :method => "put", :class => "btn btn-lg btn-success" %>
+      <% elsif current_user.memberships.find_by_group(@group).role == "admin" %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_group_path(@group), :class => 'btn btn-default' %>
-      <% end %>
     <% end %>
   <% end %>
-</br>
 </div>
+
 </div>
 <div class = "well">
 <table class = "table">
