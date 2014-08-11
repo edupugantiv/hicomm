@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require bootstrap
 
-//= require_tree .
 
 $(document).ready(function(){
         $('#carousel1').carousel({
@@ -42,3 +41,5 @@ $(document).ready(function(){
             clickEvent = false;
         });
 });
+
+//= require_tree .
